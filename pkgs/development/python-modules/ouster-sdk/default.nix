@@ -125,6 +125,9 @@ buildPythonPackage (finalAttrs: {
     pytest-asyncio
   ];
 
+  # Sensor and discovery tests bind UDP sockets in the Darwin sandbox.
+  __darwinAllowLocalNetworking = true;
+
   pythonImportsCheck = [
     "ouster.sdk"
     "ouster.cli.core"
